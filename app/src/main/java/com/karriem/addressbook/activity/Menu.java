@@ -39,12 +39,5 @@ public class Menu extends Activity {
                 startActivity(intent);
             }
         });
-
-        //clearDB.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-            //public void onClick(View v) {
-              //  dao.deleteDB();
-            //}
-        //});
     }
 }
