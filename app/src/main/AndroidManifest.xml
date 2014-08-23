@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.karriem.addressbook">
+    <uses-sdk android:minSdkVersion="14"/>
+    <application android:icon="@drawable/bookicon" android:label="@string/app_name">
+        <activity android:name=".activity.Menu" android:label="Contact Book">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.CreateContact" android:label="Create Contact"/>
+        <activity android:name=".activity.ViewContacts" android:label="View Contact Details"/>
+        <activity android:name="com.karriem.addressbook.activity.Contacts" android:label="Contacts"/>
+    </application>
+</manifest>
