@@ -22,7 +22,6 @@ public class Menu extends Activity {
 
         Button create = (Button) findViewById(R.id.createBtn);
         Button view = (Button) findViewById(R.id.viewBtn);
-        //Button clearDB = (Button) findViewById(R.id.clearDB);
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
