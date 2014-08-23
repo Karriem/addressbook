@@ -35,13 +35,13 @@ public class CreateContact extends Activity {
             @Override
             public void onClick(View v) {
                 Contact contact = new Contact.Builder()
+                        .id(dao.getID())
                         .firstName(nameTxt.getText().toString())
                         .lastName(lastNTxt.getText().toString())
                         .homeAddress(homeTxt.getText().toString())
                         .cellPhoneNumber(cellTxt.getText().toString())
                         .emailAddress(emailTxt.getText().toString())
                         .build();
-                //dao.deleteDB();
                 dao.createContact(contact);
                 finish();
             }

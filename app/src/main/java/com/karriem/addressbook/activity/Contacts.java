@@ -27,14 +27,16 @@ public class Contacts extends Activity {
 
     public class CustomList extends ArrayAdapter<String> {
         private final Activity context;
-        private  String[] web;
-        private  String[] imageId;
+        private String[] web;
+        private String[] imageId;
+        private String[] recID;
         public CustomList(Activity context,
-                          String[] web, String[] imageId) {
+                          String[] recID, String[] web, String[] imageId) {
             super(context, R.layout.list_single, web);
             this.context = context;
             this.web = web;
             this.imageId = imageId;
+            this.recID = recID;
         }
         @Override
         public View getView(int position, View view, ViewGroup parent) {
@@ -43,13 +45,15 @@ public class Contacts extends Activity {
 
             TextView txtTitle = (TextView) rowView.findViewById(R.id.txt);
             TextView imageView = (TextView) rowView.findViewById(R.id.img);
+            TextView textID = (TextView) rowView.findViewById(R.id.recID);
 
             Button btn = (Button) rowView.findViewById(R.id.moreBtn2);
 
             txtTitle.setText(web[position]);
             imageView.setText(imageId[position]);
+            textID.setText(recID[position]);
 
-            btn.setTag(imageView.getText().toString());
+            btn.setTag(textID.getText().toString());
 
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -76,12 +80,13 @@ public class Contacts extends Activity {
 
         String[] item = new String[listCon.size()];
         String[] subItem = new String[listCon.size()];
+        String[] subID = new String[listCon.size()];
 
+        subIDs(subID);
         listItems(item);
         subItems(subItem);
 
-        CustomList adapter = new
-                CustomList(this, subItem, item);
+        CustomList adapter = new CustomList(this, subID, subItem, item);
         list=(ListView)findViewById(R.id.listView);
         list.setAdapter(adapter);
 
@@ -160,6 +165,16 @@ public class Contacts extends Activity {
         for(Contact con : listCon){
 
             subItem[count] = con.getCellPhoneNumber();
+            count++;
+        }
+    }
+
+    private void subIDs(String[] subID){
+        int count = 0;
+
+        for(Contact con : listCon){
+
+            subID[count] = String.valueOf(con.getId());
             count++;
         }
     }

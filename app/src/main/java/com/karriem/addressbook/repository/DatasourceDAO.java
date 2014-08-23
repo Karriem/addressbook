@@ -19,4 +19,6 @@ public interface DatasourceDAO {
     public List<Contact> getContactList();
 
     public String searchLastName(String value);
+
+    public int getID();
 }

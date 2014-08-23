@@ -12,7 +12,7 @@
             android:textColor="@android:color/background_dark"/>
 
     <ListView
-            android:layout_width="331dp"
+            android:layout_width="348dp"
             android:layout_height="373dp"
             android:id="@+id/listView" android:layout_x="15dp" android:layout_y="103dp"
             android:fastScrollAlwaysVisible="false"

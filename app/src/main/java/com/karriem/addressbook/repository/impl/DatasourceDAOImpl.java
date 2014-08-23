@@ -77,11 +77,12 @@ public class DatasourceDAOImpl implements DatasourceDAO {
         if (cursor.moveToFirst()) {
             do {
                 final Contact contact = new Contact.Builder()
-                        .firstName(cursor.getString(0))
-                        .lastName(cursor.getString(1))
-                        .emailAddress(cursor.getString(2))
-                        .cellPhoneNumber(cursor.getString(3))
-                        .homeAddress(cursor.getString(4))
+                        .id(cursor.getInt(0))
+                        .firstName(cursor.getString(1))
+                        .lastName(cursor.getString(2))
+                        .emailAddress(cursor.getString(3))
+                        .cellPhoneNumber(cursor.getString(4))
+                        .homeAddress(cursor.getString(5))
                         .build();
 
                 contactList.add(contact);
@@ -92,6 +93,28 @@ public class DatasourceDAOImpl implements DatasourceDAO {
         close();
 
         return contactList;
+    }
+
+    @Override
+    public int getID(){
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select max("+ DBadapter.COLUMN_ID +") from " + DBadapter.TABLE_CONTACTS, null);
+        System.out.println(cursor.getCount());
+        int newID = 0;
+        if (cursor != null && cursor.getCount() > 0){
+            try{
+                newID = cursor.getCount() + 1;
+            }catch (Exception e){
+                newID = 1;
+            }
+        }else{
+            newID = 1;
+        }
+
+        cursor.close();
+        sqLiteDatabase.close();
+
+        return newID;
     }
 
     @Override

@@ -12,6 +12,7 @@ public class DBadapter extends SQLiteOpenHelper {
 
     public static final String TABLE_CONTACTS = "contacts";
 
+    public static final String COLUMN_ID = "id";
     public static final String COLUMN_FIRST_NAME = "firstName";
     public static final String COLUMN_LAST_NAME = "lastName";
     public static final String COLUMN_EMAIL_ADDRESS = "emailAddress";
@@ -23,6 +24,7 @@ public class DBadapter extends SQLiteOpenHelper {
 
     private static final String CREATE_CONTACT_TABLE = "create table IF NOT EXISTS "
             + TABLE_CONTACTS + " ( "
+            + COLUMN_ID + " " + "Integer Primary Key ,"
             + COLUMN_FIRST_NAME + " " + "text not null ,"
             + COLUMN_LAST_NAME + " " + "text not null ,"
             + COLUMN_EMAIL_ADDRESS + " " + "text not null ,"

@@ -18,8 +18,6 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-        final DatasourceDAO dao = new DatasourceDAOImpl(this);
-
         Button create = (Button) findViewById(R.id.createBtn);
         Button view = (Button) findViewById(R.id.viewBtn);
 

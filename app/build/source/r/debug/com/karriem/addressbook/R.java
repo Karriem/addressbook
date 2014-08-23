@@ -19,20 +19,21 @@ public final class R {
     public static final class id {
         public static final int bckBtnC=0x7f050002;
         public static final int cellTxt=0x7f050009;
-        public static final int cellTxtV=0x7f050017;
+        public static final int cellTxtV=0x7f050018;
         public static final int createBackBtn=0x7f05000d;
         public static final int createBtn=0x7f05000e;
         public static final int emailTxt=0x7f05000b;
-        public static final int emailTxtV=0x7f050018;
+        public static final int emailTxtV=0x7f050019;
         public static final int homeTxt=0x7f050008;
-        public static final int homeTxtV=0x7f050016;
-        public static final int imageView=0x7f050012;
-        public static final int img=0x7f05000f;
-        public static final int lastTxtV=0x7f050015;
+        public static final int homeTxtV=0x7f050017;
+        public static final int imageView=0x7f050013;
+        public static final int img=0x7f050010;
+        public static final int lastTxtV=0x7f050016;
         public static final int listView=0x7f050001;
-        public static final int moreBtn2=0x7f050011;
+        public static final int moreBtn2=0x7f050012;
         public static final int nameTxt=0x7f050005;
-        public static final int nameTxtV=0x7f050014;
+        public static final int nameTxtV=0x7f050015;
+        public static final int recID=0x7f05000f;
         public static final int surnametxt=0x7f050006;
         public static final int textView=0x7f050000;
         public static final int textView2=0x7f050007;
@@ -40,9 +41,9 @@ public final class R {
         public static final int textView4=0x7f05000a;
         public static final int textView5=0x7f05000c;
         public static final int textView6=0x7f050004;
-        public static final int txt=0x7f050010;
-        public static final int viewBckBBtn=0x7f050019;
-        public static final int viewBtn=0x7f050013;
+        public static final int txt=0x7f050011;
+        public static final int viewBckBBtn=0x7f05001a;
+        public static final int viewBtn=0x7f050014;
     }
     public static final class layout {
         public static final int contacts=0x7f030000;

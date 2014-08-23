@@ -24,6 +24,7 @@ public class ViewContacts extends Activity {
 
     List<Contact> contactList = new ArrayList<Contact>();
     private String value;
+    private int num = 0;
     int count = 0;
 
     @Override
@@ -39,11 +40,13 @@ public class ViewContacts extends Activity {
 
         Intent intent = getIntent();
         value = intent.getStringExtra("list");
+        num = Integer.parseInt(value);
 
         for (Contact con : contactList){
 
-           if(con.getLastName().equalsIgnoreCase(value)){
+           if(con.getId() == num){
                System.out.println("Record Found");
+               System.out.println(con.getId());
                break;
            }
                count++;
