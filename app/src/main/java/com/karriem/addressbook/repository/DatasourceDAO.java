@@ -14,7 +14,9 @@ public interface DatasourceDAO {
 
     public void createContact(Contact contact);
 
-    public void deleteDB();
+    public void delete(String id);
+
+    public int update(Contact con);
 
     public List<Contact> getContactList();
 

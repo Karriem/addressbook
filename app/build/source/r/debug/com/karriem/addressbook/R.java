@@ -18,6 +18,8 @@ public final class R {
     }
     public static final class id {
         public static final int bckBtnC=0x7f050002;
+        public static final int btnDel=0x7f05001c;
+        public static final int btnUp=0x7f05001b;
         public static final int cellTxt=0x7f050009;
         public static final int cellTxtV=0x7f050018;
         public static final int createBackBtn=0x7f05000d;

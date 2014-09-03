@@ -4,33 +4,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:background="@android:color/holo_blue_bright">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="View Contacts"
-            android:id="@+id/textView" android:layout_x="131dp" android:layout_y="15dp"
-            android:textColor="@android:color/background_dark"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <AbsoluteLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Contacts"
+                    android:id="@+id/textView" android:layout_x="131dp" android:layout_y="15dp"
+                    android:textColor="@android:color/background_dark"/>
 
-    <ListView
-            android:layout_width="348dp"
-            android:layout_height="373dp"
-            android:id="@+id/listView" android:layout_x="15dp" android:layout_y="103dp"
-            android:fastScrollAlwaysVisible="false"
-            android:footerDividersEnabled="false" android:headerDividersEnabled="false"
-            android:smoothScrollbar="true" android:textFilterEnabled="false"
-            android:background="@android:color/holo_blue_bright" android:drawSelectorOnTop="false"
-            android:choiceMode="singleChoice"/>
-    <Button
-            style="@android:style/Widget.DeviceDefault.Button.Inset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:id="@+id/bckBtnC" android:layout_x="5dp" android:layout_y="515dp"
-            android:textColor="@android:color/background_dark"/>
-    <TextView
-            android:layout_width="331dp"
-            android:layout_height="wrap_content"
-            android:text="Please select the person's LAST NAME you wish to view from the list below:"
-            android:id="@+id/textView3" android:layout_x="17dp" android:layout_y="52dp"
-            android:textColor="@android:color/background_dark"/>
-</AbsoluteLayout>
+            <ListView
+                    android:layout_width="348dp"
+                    android:layout_height="373dp"
+                    android:id="@+id/listView" android:layout_x="15dp" android:layout_y="103dp"
+                    android:fastScrollAlwaysVisible="false"
+                    android:footerDividersEnabled="false" android:headerDividersEnabled="false"
+                    android:smoothScrollbar="true" android:textFilterEnabled="false"
+                    android:background="@android:color/holo_blue_bright" android:drawSelectorOnTop="false"
+                    android:choiceMode="singleChoice"/>
+            <Button
+                    style="@android:style/Widget.DeviceDefault.Button.Inset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Back"
+                    android:id="@+id/bckBtnC" android:layout_x="5dp" android:layout_y="515dp"
+                    android:textColor="@android:color/background_dark"/>
+            <TextView
+                    android:layout_width="331dp"
+                    android:layout_height="wrap_content"
+                    android:text="Please select the person's LAST NAME you wish to view from the list below:"
+                    android:id="@+id/textView3" android:layout_x="17dp" android:layout_y="52dp"
+                    android:textColor="@android:color/background_dark"/>
+        </AbsoluteLayout>
+    </ScrollView>
+ </AbsoluteLayout>

@@ -27,12 +27,22 @@ public class ViewContacts extends Activity {
     private int num = 0;
     int count = 0;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewcontacts);
 
+        final EditText lastN = (EditText) findViewById(R.id.lastTxtV);
+        final EditText cell = (EditText) findViewById(R.id.cellTxtV);
+        final EditText name = (EditText) findViewById(R.id.nameTxtV);
+        final EditText home = (EditText) findViewById(R.id.homeTxtV);
+        final EditText email = (EditText) findViewById(R.id.emailTxtV);
+
         final Button back = (Button) findViewById(R.id.viewBckBBtn);
+        final Button update = (Button) findViewById(R.id.btnUp);
+        final Button delete = (Button) findViewById(R.id.btnDel);
 
         final DatasourceDAO dao = new DatasourceDAOImpl(this);
 
@@ -52,12 +62,6 @@ public class ViewContacts extends Activity {
                count++;
         }
 
-        final EditText lastN = (EditText) findViewById(R.id.lastTxtV);
-        final EditText cell = (EditText) findViewById(R.id.cellTxtV);
-        final EditText name = (EditText) findViewById(R.id.nameTxtV);
-        final EditText home = (EditText) findViewById(R.id.homeTxtV);
-        final EditText email = (EditText) findViewById(R.id.emailTxtV);
-
         lastN.setText(contactList.get(count).getLastName());
         cell.setText(contactList.get(count).getCellPhoneNumber());
         name.setText(contactList.get(count).getFirstName());
@@ -71,6 +75,62 @@ public class ViewContacts extends Activity {
                 finish();
             }
         });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backMenu = new Intent(getApplicationContext(), Menu.class);
+                dao.delete(value);
+                startActivity(backMenu);
+                finish();
+            }
+        });
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (name.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),"First name field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+                }
+                else
+                if (lastN.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Last name field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+                }
+                else
+                if (home.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Home address field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+                }
+                else
+                if (cell.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Cell phone number field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+                }
+                else
+                if (email.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Email field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Contact conUp = new Contact.Builder()
+                                    .id(num)
+                                    .cellPhoneNumber(cell.getText().toString())
+                                    .emailAddress(email.getText().toString())
+                                    .firstName(name.getText().toString())
+                                    .homeAddress(home.getText().toString())
+                                    .lastName(lastN.getText().toString())
+                                    .build();
+
+                    Contact newCon = new Contact.Builder().contact(conUp).build();
+
+                    dao.update(newCon);
+
+                    Intent backMen = new Intent(getApplicationContext(), Menu.class);
+                    startActivity(backMen);
+                    finish();
+                }
+            }
+        });
+
+
 
         //Search method-----------------------------------------------------------------------------
         //ok.setOnClickListener(new View.OnClickListener() {
@@ -111,4 +171,33 @@ public class ViewContacts extends Activity {
         //});
         //-----------------------------------------------------------------------------------------
     }
-}
+
+   // public boolean Emptycheck(){
+
+      //  if (cell.getText().toString().isEmpty()){
+     //        Toast.makeText(getApplicationContext(),"Cell phone number field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+      //       return false;
+        }
+      //  else
+      //  if (email.getText().toString().isEmpty()){
+      //      Toast.makeText(getApplicationContext(),"Email field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+      ///      return false;
+      //  }
+      //  else
+      //  if (name.getText().toString().isEmpty()){
+     //       Toast.makeText(getApplicationContext(),"First name field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+     //       return false;
+     //   }
+     //   else
+     //   if (home.getText().toString().isEmpty()){
+     //           Toast.makeText(getApplicationContext(),"Home address field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+     //           return false;
+     //   }
+     ///   else
+      //  if (lastN.getText().toString().isEmpty()){
+       //      Toast.makeText(getApplicationContext(),"Last name field is empty, please fill in field", Toast.LENGTH_SHORT).show();
+      //       return false;
+     //   }
+    //    else
+    //        return true;
+  // }

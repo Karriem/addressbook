@@ -58,8 +58,36 @@ public class DatasourceDAOImpl implements DatasourceDAO {
     }
 
     @Override
-    public void deleteDB() {
-        database.execSQL("DROP TABLE IF EXISTS " + DBadapter.TABLE_CONTACTS);
+    public int update(Contact contact){
+        //SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        try{
+            open();
+        }
+        catch(SQLException e){
+            e.getErrorCode();
+        }
+        ContentValues values = new ContentValues();
+
+        values.put(DBadapter.COLUMN_FIRST_NAME, contact.getFirstName());
+        values.put(DBadapter.COLUMN_LAST_NAME, contact.getLastName());
+        values.put(DBadapter.COLUMN_CELL_PHONE_NUMBER, contact.getCellPhoneNumber());
+        values.put(DBadapter.COLUMN_EMAIL_ADDRESS, contact.getEmailAddress());
+        values.put(DBadapter.COLUMN_HOME_ADDRESS, contact.getHomeAddress());
+
+        return database.update(DBadapter.TABLE_CONTACTS, values, DBadapter.COLUMN_ID + "=?", new String[]{String.valueOf(contact.getId())});
+    }
+
+    @Override
+    public void delete(String id){
+        //SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        try {
+            open();
+        }
+        catch (SQLException e){
+            e.getErrorCode();
+        }
+        database.delete(DBadapter.TABLE_CONTACTS, DBadapter.COLUMN_ID + "=?", new String[]{String.valueOf(id)});
+        close();
     }
 
     @Override
